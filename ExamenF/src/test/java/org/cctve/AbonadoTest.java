@@ -61,18 +61,19 @@ class AbonadoTest {
 
     @Test
     public void testCambioPass() {
-        String newPsw = "987";
+        String newPsw = "1234";
         a1.cambioPassword(newPsw);
-        assertEquals(987,a1.getPassword());
-        System.out.println("cambio realizado "+a1.getPassword());
+        assertEquals(1234, a1.getPassword());
     }
     @Test
     public void testAbonadosDiferentes() {
-        boolean diferentes = ciu.abonadosDiferentes(ciu);
-        assertTrue(diferentes);
+        assertTrue(ciu.abonadosDiferentes(ciu2));
         assertNotSame(ciu, ciu2, "misma persona");
 
     }
-
+    @Test
+    void testDelay() {
+        assertTimeoutPreemptively(java.time.Duration.ofMillis(30), () -> ciu.delay(45));
+    }
 
 }

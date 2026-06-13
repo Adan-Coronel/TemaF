@@ -83,4 +83,11 @@ public class Abonado {
                 && this.password == c2.password;
         return !iguales;
     }
+    public void delay(int mili) {
+        try {
+            Thread.sleep(mili);
+        } catch (InterruptedException e) {
+            System.out.println("Delay de " + mili + " milisegundos");
+        }
+    }
 }
