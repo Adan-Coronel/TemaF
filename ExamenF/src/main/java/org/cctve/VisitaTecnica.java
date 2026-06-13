@@ -4,17 +4,20 @@ import java.time.LocalDate;
 
 public class VisitaTecnica {
 
-    public int nroVisita;
+    private int nroVisita;
     private Domicilio ubicacion;
     private LocalDate fechaCreacion;
-    public LocalDate fechaRepacion;
-    public String observacion;
+    private LocalDate fechaReparacion;
+    private String observacion;
 
-    public VisitaTecnica(int nroVisita, Domicilio ubicacion, LocalDate fechaCreacion, LocalDate fechaRepacion, String observacion) {
+
+    private Cuadrilla cuadrilla;
+
+    public VisitaTecnica(int nroVisita, Domicilio ubicacion, LocalDate fechaCreacion, LocalDate fechaReparacion, String observacion) {
         this.nroVisita = nroVisita;
         this.ubicacion = ubicacion;
         this.fechaCreacion = fechaCreacion;
-        this.fechaRepacion = fechaRepacion;
+        this.fechaReparacion = fechaReparacion;
         this.observacion = observacion;
     }
 
@@ -36,11 +39,11 @@ public class VisitaTecnica {
     }
 
     public LocalDate getFechaRepacion() {
-        return fechaRepacion;
+        return fechaReparacion;
     }
 
     public void setFechaRepacion(LocalDate fechaRepacion) {
-        this.fechaRepacion = fechaRepacion;
+        this.fechaReparacion = fechaRepacion;
     }
 
     public String getObservacion() {
@@ -50,4 +53,30 @@ public class VisitaTecnica {
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
+
+    public Cuadrilla getCuadrilla() {
+        return cuadrilla;
+    }
+
+    public void setCuadrilla(Cuadrilla cuadrilla) {
+        this.cuadrilla = cuadrilla;
+    }
+    public void crearVisita() {
+        this.fechaCreacion = LocalDate.now();
+        this.fechaReparacion = LocalDate.now().plusDays(7);
+        this.observacion = null;
+    }
+
+    public void asignarCuadrilla(Cuadrilla c) {
+        this.cuadrilla = c;
+        if (c != null) {
+            c.asignar();
+        }
+    }
+    public void finalizarVisita(String obs) {
+        this.observacion = obs;
+        this.fechaReparacion = LocalDate.now();
+    }
+
+
 }

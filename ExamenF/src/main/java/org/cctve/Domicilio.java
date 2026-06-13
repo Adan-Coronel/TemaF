@@ -2,10 +2,10 @@ package org.cctve;
 
 public class Domicilio {
 
-    public String calle1;
-    public String calle2;
-    public String barrio;
-    public int altura;
+    private String calle1;
+    private String calle2;
+    private String barrio;
+    private int altura;
 
     public Domicilio(String calle1, String calle2, String barrio, int altura) {
         this.calle1 = calle1;

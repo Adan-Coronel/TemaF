@@ -4,14 +4,15 @@ import java.util.List;
 
 public class Cuadrilla {
 
-    public int nroCuadrilla;
-    List<Empleado> cantidadTrabajadores;
-    public String equipacion;
-    public String materiales;
+    private int nroCuadrilla;
+    private List<Empleado> trabajadores;
+    private String equipacion;
+    private String materiales;
+    private boolean disponible;
 
-    public Cuadrilla(int nroCuadrilla, List<Empleado> cantidadTrabajadores, String equipacion, String materiales) {
+    public Cuadrilla(int nroCuadrilla, List<Empleado> trabajadores, String equipacion, String materiales) {
         this.nroCuadrilla = nroCuadrilla;
-        this.cantidadTrabajadores = cantidadTrabajadores;
+        this.trabajadores = trabajadores;
         this.equipacion = equipacion;
         this.materiales = materiales;
     }
@@ -24,12 +25,12 @@ public class Cuadrilla {
         this.nroCuadrilla = nroCuadrilla;
     }
 
-    public List<Empleado> getCantidadTrabajadores() {
-        return cantidadTrabajadores;
+    public List<Empleado> getTrabajadores() {
+        return trabajadores;
     }
 
-    public void setCantidadTrabajadores(List<Empleado> cantidadTrabajadores) {
-        this.cantidadTrabajadores = cantidadTrabajadores;
+    public void setTrabajadores(List<Empleado> trabajadores) {
+        this.trabajadores = trabajadores;
     }
 
     public String getEquipacion() {
@@ -47,4 +48,15 @@ public class Cuadrilla {
     public void setMateriales(String materiales) {
         this.materiales = materiales;
     }
+
+    public void asignar() {
+        this.disponible = false;
+    }
+    public void liberar() {
+        this.disponible = true;
+    }
+    public boolean estaLibre() {
+        return this.disponible;
+    }
+
 }

@@ -5,15 +5,15 @@ public class Modem {
     public enum EstadoModem{
         NUEVO,REPARADO,ROTO;
     }
-    public long nroSerial;
-    public String marca;
-    public double velocidad;
-    public int puertoEthernet;
-    public String puertoCoaxial;
-    public String protocoloRed;
-    public int nroLed;
-    public boolean firewall;
-    public EstadoModem estadoModem;
+    private long nroSerial;
+    private String marca;
+    private double velocidad;
+    private int puertoEthernet;
+    private String puertoCoaxial;
+    private String protocoloRed;
+    private int nroLed;
+    private boolean firewall;
+    private EstadoModem estadoModem;
 
 
     public Modem(long nroSerial, String marca, double velocidad, int puertoEthernet, String puertoCoaxial, String protocoloRed, int nroLed, boolean firewall, EstadoModem estadoModem) {
@@ -95,7 +95,9 @@ public class Modem {
     public EstadoModem getEstadoModem() {
         return estadoModem;
     }
-
+    public void marcarReparado() {
+        this.estadoModem = EstadoModem.REPARADO;
+    }
     public void setEstadoModem(EstadoModem estadoModem) {
         this.estadoModem = estadoModem;
     }

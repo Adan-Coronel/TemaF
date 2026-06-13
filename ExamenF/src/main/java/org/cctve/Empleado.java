@@ -6,11 +6,11 @@ public class Empleado {
         LIBRE,OCUPADO;
     }
 
-    public int id;
-    public String nombre;
-    public String puesto;
+    private int id;
+    private String nombre;
+    private String puesto;
     private Estado estado;
-    public boolean lider;
+    private boolean lider;
 
     public Empleado(int id, String nombre, String puesto, Estado estado, boolean lider) {
         this.id = id;

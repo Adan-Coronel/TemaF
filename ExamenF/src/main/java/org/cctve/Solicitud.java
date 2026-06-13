@@ -4,15 +4,15 @@ import java.time.LocalDate;
 
 
 public class Solicitud {
-    private Cliente informante;
-    public int codigoUrgencia; // entre 1 y 5
-    public int codigoInforme;
+    private Abonado informante;
+    private int codigoUrgencia; // entre 1 y 5
+    private int codigoInforme;
     private LocalDate fechaInforme;
-    public String problema;
+    private String problema;
     private Modem modemRoto;
     private VisitaTecnica visitaTecnica;
 
-    public Solicitud(Cliente informante, int codigoUrgencia, int codigoInforme, LocalDate fechaInforme, String problema, Modem modemRoto, VisitaTecnica visitaTecnica) {
+    public Solicitud(Abonado informante, int codigoUrgencia, int codigoInforme, LocalDate fechaInforme, String problema, Modem modemRoto, VisitaTecnica visitaTecnica) {
         this.informante = informante;
         this.codigoUrgencia = codigoUrgencia;
         this.codigoInforme = codigoInforme;
@@ -22,7 +22,7 @@ public class Solicitud {
         this.visitaTecnica = visitaTecnica;
     }
 
-    public Cliente getInformante() {
+    public Abonado getInformante() {
         return informante;
     }
 
@@ -62,5 +62,24 @@ public class Solicitud {
     public VisitaTecnica getVisitaTecnica() {
         return visitaTecnica;
     }
+
+    public void crearSolicitud(Modem m, Abonado a, String problema, int prioridad) {
+        this.modemRoto = m;
+        this.informante = a;
+        this.problema = problema;
+        this.codigoUrgencia = prioridad;
+        this.fechaInforme = LocalDate.now();
+        this.visitaTecnica = null;
+    }
+
+    public boolean tieneVisita() {
+        return this.visitaTecnica != null;
+    }
+
+    public void asignarVisita(VisitaTecnica v) {
+        this.visitaTecnica = v;
+    }
+
+
 
 }
